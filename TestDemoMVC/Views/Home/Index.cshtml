@@ -1,0 +1,234 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<Employee>
+
+<h2>Upload CSV</h2>
+<div class="forms">
+    <form asp-action="ImportFile" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" /> 
+        <button type="submit">Import</button>
+        <input type="text" id="searchInput" placeholder="Search ..." />
+    </form>
+
+    <div id="editModal" style="display:none;">
+        <form id="editForm" onsubmit="updateEmployee(event)">
+            <input type="hidden" id="editEmployeeId" />
+            <label>Column 1: <input type="text" id="editColumn1" required /></label>
+            <label>Column 2: <input type="text" id="editColumn2" required /></label>
+            <label>Column 3: <input type="text" id="editColumn3" required /></label>
+            <label>Column 4: <input type="text" id="editColumn4" required /></label>
+            <label>Column 5: <input type="text" id="editColumn5" required /></label>
+            <button type="submit">Update</button>
+            <button type="button" class="btn-cancel" onclick="closeEditModal()">Cancel</button>
+
+        </form>
+    </div>
+</div>
+
+<table id="employeeTable" class="display">
+    <thead>
+        <tr>
+            @if (Model.Any(e => !string.IsNullOrEmpty(e.Column1)))
+            {
+                <th>Column 1</th>
+            }
+            @if (Model.Any(e => !string.IsNullOrEmpty(e.Column2)))
+            {
+                <th onclick="sortTable(1)">Column 2 🔝🔝🔝</th>
+            }
+            @if (Model.Any(e => !string.IsNullOrEmpty(e.Column3)))
+            {
+                <th>Column 3</th>
+            }
+            @if (Model.Any(e => !string.IsNullOrEmpty(e.Column4)))
+            {
+                <th onclick="sortTable(3)">Column 4 🔝🔝🔝</th>
+            }
+            @if (Model.Any(e => !string.IsNullOrEmpty(e.Column5)))
+            {
+                <th>Column 5</th>
+            }
+            @if (Model.Any(e => !string.IsNullOrEmpty(e.Column6)))
+            {
+                <th>Column 6</th>
+            }
+            @if (Model.Any(e => !string.IsNullOrEmpty(e.Column7)))
+            {
+                <th>Column 7</th>
+            }
+            @if (Model.Any(e => !string.IsNullOrEmpty(e.Column8)))
+            {
+                <th>Column 8</th>
+            }
+            @if (Model.Any(e => !string.IsNullOrEmpty(e.Column9)))
+            {
+                <th>Column 9</th>
+            }
+            @if (Model.Any(e => !string.IsNullOrEmpty(e.Column10)))
+            {
+                <th>Column 10</th>
+            }
+            @if (Model.Any(e => !string.IsNullOrEmpty(e.Column11)))
+            {
+                <th>Column 11</th>
+            }
+            @if (Model.Any(e => !string.IsNullOrEmpty(e.Column12)))
+            {
+                <th>Column 12</th>
+            }
+            @if (Model.Any(e => !string.IsNullOrEmpty(e.OtherInfo)))
+            {
+                <th>Other Info</th>
+            }
+            @if (Model.Any(e => !string.IsNullOrEmpty(e.OtherInfo1)))
+            {
+                <th>Other Info 1</th>
+            }
+            @if (Model.Any(e => !string.IsNullOrEmpty(e.OtherInfo2)))
+            {
+                <th>Other Info 2</th>
+            }
+            @if (Model.Any(e => !string.IsNullOrEmpty(e.OtherInfo3)))
+            {
+                <th>Other Info 3</th>
+            }
+            @if (Model.Any(e => !string.IsNullOrEmpty(e.OtherInfo4)))
+            {
+                <th>Other Info 4</th>
+            }
+            @if (Model.Any(e => !string.IsNullOrEmpty(e.OtherInfo5)))
+            {
+                <th>Other Info 5</th>
+            }
+            @if (Model.Any(e => !string.IsNullOrEmpty(e.OtherInfo6)))
+            {
+                <th>Other Info 6</th>
+            }
+            @if (Model.Any(e => !string.IsNullOrEmpty(e.OtherInfo7)))
+            {
+                <th>Other Info 7</th>
+            }
+            @if (Model.Any(e => !string.IsNullOrEmpty(e.OtherInfo8)))
+            {
+                <th>Other Info 8</th>
+            }
+            @if (Model.Any(e => !string.IsNullOrEmpty(e.OtherInfo9)))
+            {
+                <th>Other Info 9</th>
+            }
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                @if (!string.IsNullOrEmpty(employee.Column1))
+                {
+                    <td>@employee.Column1</td>
+                }
+                @if (!string.IsNullOrEmpty(employee.Column2))
+                {
+                    <td>@employee.Column2</td>
+                }
+                @if (!string.IsNullOrEmpty(employee.Column3))
+                {
+                    <td>@employee.Column3</td>
+                }
+                @if (!string.IsNullOrEmpty(employee.Column4))
+                {
+                    <td>@employee.Column4</td>
+                }
+                @if (!string.IsNullOrEmpty(employee.Column5))
+                {
+                    <td>@employee.Column5</td>
+                }
+                @if (!string.IsNullOrEmpty(employee.Column6))
+                {
+                    <td>@employee.Column6</td>
+                }
+                @if (!string.IsNullOrEmpty(employee.Column7))
+                {
+                    <td>@employee.Column7</td>
+                }
+                @if (!string.IsNullOrEmpty(employee.Column8))
+                {
+                    <td>@employee.Column8</td>
+                }
+                @if (!string.IsNullOrEmpty(employee.Column9))
+                {
+                    <td>@employee.Column9</td>
+                }
+                @if (!string.IsNullOrEmpty(employee.Column10))
+                {
+                    <td>@employee.Column10</td>
+                }
+                @if (!string.IsNullOrEmpty(employee.Column11))
+                {
+                    <td>@employee.Column11</td>
+                }
+                @if (!string.IsNullOrEmpty(employee.Column12))
+                {
+                    <td>@employee.Column12</td>
+                }
+                @if (!string.IsNullOrEmpty(employee.OtherInfo))
+                {
+                    <td>@employee.OtherInfo</td>
+                }
+                @if (!string.IsNullOrEmpty(employee.OtherInfo1))
+                {
+                    <td>@employee.OtherInfo1</td>
+                }
+                @if (!string.IsNullOrEmpty(employee.OtherInfo2))
+                {
+                    <td>@employee.OtherInfo2</td>
+                }
+                @if (!string.IsNullOrEmpty(employee.OtherInfo3))
+                {
+                    <td>@employee.OtherInfo3</td>
+                }
+                @if (!string.IsNullOrEmpty(employee.OtherInfo4))
+                {
+                    <td>@employee.OtherInfo4</td>
+                }
+                @if (!string.IsNullOrEmpty(employee.OtherInfo5))
+                {
+                    <td>@employee.OtherInfo5</td>
+                }
+                @if (!string.IsNullOrEmpty(employee.OtherInfo6))
+                {
+                    <td>@employee.OtherInfo6</td>
+                }
+                @if (!string.IsNullOrEmpty(employee.OtherInfo7))
+                {
+                    <td>@employee.OtherInfo7</td>
+                }
+                @if (!string.IsNullOrEmpty(employee.OtherInfo8))
+                {
+                    <td>@employee.OtherInfo8</td>
+                }
+                @if (!string.IsNullOrEmpty(employee.OtherInfo9))
+                {
+                    <td>@employee.OtherInfo9</td>
+                }
+                <td>
+                    <button id="edit" onclick="openEditModal('@employee.Id', '@employee.Column1', 
+                        '@employee.Column2', '@employee.Column3', '@employee.Column4', 
+                        '@employee.Column5')">Edit</button>
+                </td>
+                <td>
+                    <button id="delete" 
+                        onclick="deleteEmployee(@employee.Id)">Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<script src="~/js/sortFilter.js"></script>
+<script src="~/js/editEmployee.js"></script>
+<script src="~/js/deleteEmployee.js"></script>
