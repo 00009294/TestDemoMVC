@@ -27,11 +27,11 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
       
-    - name: Deploy to Server
-      uses: easingthemes/ssh-deploy@v2
-      with:
-          server_ip: ${{ secrets.SERVER_IP }}
-          server_username: ${{ secrets.SERVER_USERNAME }}
-          server_port: ${{ secrets.SERVER_PORT }}
-          local_path: ./publish
-          remote_path: /path/to/deploy    
+    # - name: Deploy to Server
+    #   uses: easingthemes/ssh-deploy@v2
+    #   with:
+    #       server_ip: ${{ secrets.SERVER_IP }}
+    #       server_username: ${{ secrets.SERVER_USERNAME }}
+    #       server_port: ${{ secrets.SERVER_PORT }}
+    #       local_path: ./publish
+    #       remote_path: /path/to/deploy    
