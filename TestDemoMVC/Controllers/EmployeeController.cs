@@ -34,7 +34,7 @@ namespace TestDemoMVC.Controllers
                 await _mediator.Send(new DeleteEmployeeCommand(id));
             }
 
-            return Ok();
+            return Ok($"ID: {id} successfully removed");
         }
     }
 }
