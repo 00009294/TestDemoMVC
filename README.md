@@ -20,3 +20,9 @@ Update:
 ![image](https://github.com/user-attachments/assets/58485990-a900-4522-ab4b-52a1a38fa660)
 
 All cruds work fine.
+
+DB:
+
+![image](https://github.com/user-attachments/assets/0c92ed09-8e23-4e60-bf98-3e625f116bc4)
+
+![image](https://github.com/user-attachments/assets/436f8be7-538a-4694-bf8b-cfa4dbb138ee)
