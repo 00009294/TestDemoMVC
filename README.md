@@ -15,7 +15,7 @@ Uploading csv: sample csv will be provided in wwwroot folder
 
 ![image](https://github.com/user-attachments/assets/80388b29-1477-4a75-b230-c9add620d095)
 
-Upadate:
+Update:
 
 ![image](https://github.com/user-attachments/assets/58485990-a900-4522-ab4b-52a1a38fa660)
 
